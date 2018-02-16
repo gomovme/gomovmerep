@@ -1,0 +1,37 @@
+<!-- Sidebar Content -->
+<md-sidenav
+    class="md-sidenav-right"
+    md-component-id="right">
+
+  <!-- Sidebar Header -->
+  <md-toolbar class="md-theme-light">
+    <h1 class="md-toolbar-tools">
+	    <md-button class="md-icon-button" aria-label="Close Menu" ng-click="toggleRight()">
+	      <md-icon class="matrial-icon">close</md-icon>
+	    </md-button>
+	    &nbsp;&nbsp;<span>MENU</span>
+    </h1>
+  </md-toolbar>
+
+  <!-- Sidebar Links -->
+  <md-content>
+    <ul>
+      <li>
+        <a href="" ng-click="toggleRight(); path('/')"><span>INÍCIO</span></a>
+      </li>
+      <li>
+        <a href="" ng-click="toggleRight(); path('/comprar')"><span>COMPRAR</span></a>
+      </li>
+      <li>
+        <a href="" ng-click="toggleRight(); path('/go2')"><span>MOVME GO2</span></a>
+      </li>
+      <li>
+        <a href="" ng-click="toggleRight(); path('/faq')"><span>FAQ</span></a>
+      </li>
+      <li>
+        <a href="" ng-click="toggleRight(); path('/nossa-historia')"><span>NOSSA HISTÓRIA</span></a>
+      </li>
+    </ul>
+  </md-content>
+
+</md-sidenav>

@@ -1,0 +1,24 @@
+<!-- FAQ header -->
+<div class="faq" flex layout="column" layout-align="center center">
+	<p>como podemos ajudar?</p>
+	<h1>perguntas frequentes</h1>
+</div>
+
+<!-- Questions -->
+<div class="questions" flex layout="column" layout-align="center center">
+	<!-- Questions in app/controllers/faq.js -->
+	<div class="faq-card" ng-repeat="q in questions" ng-init="q.open = false">
+		<div class="question" ng-click="q.open = !q.open">
+			<md-icon ng-show="!q.open" class="material-icon">expand_more</md-icon>
+			<md-icon ng-show="q.open" class="material-icon">expand_less</md-icon>
+			<span ng-bind-html="q.title"></span>
+		</div>
+		<div class="answer" ng-bind-html="q.answer" ng-show="q.open"></div>
+	</div>
+
+</div>
+
+<!-- Mobile Full Width Button -->
+<a ng-click="path('/comprar')" href="javscript:void(0);" class="mobile-full-width" hide-sm hide-md hide-lg layout="row" layout-align="center center">
+	<span>COMPRE AGORA</span>
+</a>

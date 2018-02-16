@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="movme">
+
+<!-- Head -->
+<head>
+  <base href="/"/>
+  <!-- Project title -->
+  <title>Somos a Movme</title>
+
+  <!-- Meta Charset -->
+  <meta charset="utf-8">
+
+  <!-- Edge Fix -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Responsive Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="fragment" content="!">
+
+  <!-- Browser Meta -->
+  <meta name="description" content="Criamos o Movme Go2: uma nova maneira de explorar seus pequenos trajetos"/>
+  <meta name="keywords" content=""/>
+  <link rel="canonical" href="//gomovme.com/" />
+
+  <!-- URLs Meta -->
+  <meta property="og:url" content="//gomovme.com/" />
+  <meta property="og:title" content="Somos a Movme" />
+  <meta property="og:description" content="Criamos o Movme Go2: uma nova maneira de explorar seus pequenos trajetos" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:image" content="//gomovme.com/assets/img/home/feat_bg.png" />
+
+  <!-- Fav Icon -->
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
+
+  <!-- Material Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
+
+  <!-- Angular Material Core CSS -->
+  <link rel="stylesheet" href="app/components/angular-material/angular-material.min.css" type='text/css'>
+
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="app/styles/animate.css">
+
+  <!-- Iugu CSS -->
+  <link rel="stylesheet" href="app/styles/iugu.css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="app/style.css">
+
+</head>
+
+<!-- Body -->
+<body ng-controller="BodyCtrl" onload="preloader()">
+ 
+<!-- Pre Loader -->
+<div id="preloader">
+  <div class="preloader">
+    <img src="/assets/img/loader.gif" alt="Loading..." />
+  </div>
+</div>
+
+<!-- Header Content -->
+<header id="header" ng-include="'app/views/components/header.html'"></header>
+
+<!-- Menu Sidebar Content (right) -->
+<div id="sidebar" ng-include="'app/views/components/sidebar.html'" ng-controller="MenuCtrl"></div>
+
+<!-- Page Content -->
+<main ng-view autoscroll="true"></main>
+
+<!-- Footer Content -->
+<footer id="footer" ng-include="'app/views/components/footer.html'" ng-controller="FooterCtrl"></footer>
+
+<!-- jquery.js -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Iugu.js -->
+<script type="text/javascript" src="https://js.iugu.com/v2"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/formatter.js/0.1.5/formatter.min.js"></script>
+
+<!-- WOW -->
+<script type="text/javascript" src="app/components/wow/dist/wow.js"></script>
+
+<!-- AngularJS -->
+<script type="text/javascript" src="app/components/angular/angular.min.js"></script>
+<script type="text/javascript" src="app/components/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="app/components/angular-sanitize/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="app/components/angular-resource/angular-resource.min.js"></script>
+
+<!-- Angular Material -->
+<script type="text/javascript" src="app/components/angular-aria/angular-aria.min.js"></script>
+<script type="text/javascript" src="app/components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="app/components/angular-messages/angular-messages.min.js"></script>
+<script type="text/javascript" src="app/components/angular-material/angular-material.min.js"></script>
+
+<!-- AngularJS Main App -->
+<script type="text/javascript" src="app/main.js"></script>
+
+<!-- AngularJS Services -->
+<script type="text/javascript" src="app/services/scroll.js"></script>
+<script type="text/javascript" src="app/services/base.js"></script>
+<script type="text/javascript" src="app/services/rest.js"></script>
+<script type="text/javascript" src="app/services/subscribe.js"></script>
+<script type="text/javascript" src="app/services/checkout.js"></script>
+
+<!-- AngularJS Controllers -->
+<script type="text/javascript" src="app/controllers/body.js"></script>
+<script type="text/javascript" src="app/controllers/menu.js"></script>
+<script type="text/javascript" src="app/controllers/footer.js"></script>
+<script type="text/javascript" src="app/controllers/home.js"></script>
+<script type="text/javascript" src="app/controllers/product.js"></script>
+<script type="text/javascript" src="app/controllers/checkout.js"></script>
+<script type="text/javascript" src="app/controllers/faq.js"></script>
+
+</body>
+
+</html>

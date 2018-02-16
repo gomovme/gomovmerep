@@ -1,0 +1,89 @@
+<!-- First Section -->
+<div class="go2" flex layout="column" layout-align="end center">
+	<div class="overlay"></div>
+	<p>CONHEÇA O MOVME GO2</p>
+	<h1>sua nova escolha em mobilidade do dia a dia</h1>
+</div>
+
+<!-- Second Section -->
+<div class="go2-container">
+
+	<div class="go2-content" flex layout-xs="column" layout-gt-xs="row">
+		<div flex-xs="100" flex-gt-xs="60" class="go2img go2measures"></div>
+		<div flex-xs="100" flex-gt-xs="40" layout="column" layout-align="center start" class="go2-text">
+			<h1>PORTÁTIL E MULTIMODAL</h1>
+			<p>Com apenas 15kg, o Movme Go2 é fácil de manusear e transportar. Com sua alça retrátil, você tem a liberdade de escolha para levar o seu Go2 para qualquer lugar.</p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="go2-content" flex layout-xs="column" layout-gt-xs="row">
+		<div flex-xs="100" flex-gt-xs="40" layout="column" layout-align="center start" class="go2-text">
+			<h1>TECNOLOGIA SELFBALANCE</h1>
+			<p>O Movme Go2 possui usabilidade fácil e intuitiva. Incline para acelerar, recline para frear. Simples, inteligente e, em menos de 5 minutos, você já está andando.</p>
+		</div>
+		<div flex-xs="100" flex-gt-xs="60" class="go2img go2selfbalance"></div>
+	</div>
+
+	<hr style="margin-bottom: 0">
+
+	<div class="go2-content tilt" flex layout-xs="column" layout-gt-xs="row">
+		<div flex-xs="100" flex-gt-xs="50" class="go2img go2tilt"></div>
+		<div flex-xs="100" flex-gt-xs="50" layout="column" layout-align="center start" class="go2-text">
+			<h1>FAÇA CURVAS SUAVES COM O SISTEMA DE SUSPENSÃO TILTING</h1>
+		</div>
+	</div>
+
+</div>
+
+<!-- Third Section -->
+<div class="go2rear" flex layout="column" layout-align="end center">
+	<h1>DESIGN EXCLUSIVO E <br> PINTURA AUTOMOTIVA</h1>
+</div>
+
+<div class="go2-content" flex layout-xs="column" layout-gt-xs="row">
+	<div flex-xs="100" flex-gt-xs="50" layout="column" layout-align="end center" class="go2img go2watch">
+		<h1 class="white-center">SMARTBAND COM INFORMAÇÕES EM TEMPO REAL</h1>
+	</div>
+	<div flex-xs="100" flex-gt-xs="50" layout="column" layout-align="end center" class="go2img go2phone">
+		<h1 class="white-center">SISTEMA DE ALARME INTEGRADO VIA APP</h1>
+	</div>
+</div>
+
+<!-- Color Section -->
+<div class="black-header" flex layout="column" layout-align="center center">
+	<h1>seu movme go2 com a sua cara. <span>escolha sua cor:</span></h1>
+	<!-- Color Picker -->
+	<ul class="set-color">
+		<li layout="column" layout-align="center center" ng-click="setColor('black')">
+			<div class="color-picker" style="background-color: black"></div>
+			<span>Preto</span>
+		</li>
+		<li layout="column" layout-align="center center" ng-click="setColor('red')">
+			<div class="color-picker" style="background-color: red"></div>
+			<span>Vermelho</span>
+		</li>
+		<li layout="column" layout-align="center center" ng-click="setColor('silver')">
+			<div class="color-picker" style="background-color: gray"></div>
+			<span>Prata</span>
+		</li>
+		<li layout="column" layout-align="center center" ng-click="setColor('white')">
+			<div class="color-picker" style="background-color: white"></div>
+			<span>Branco</span>
+		</li>
+	</ul>
+</div>
+
+<!-- Color Display -->
+<div class="go2-color" flex layout="column" layout-align="center center">
+	<img ng-show="color == 'black'" src="/assets/img/go2/go2black.jpg" alt="Go2" />
+	<img ng-show="color == 'red'" src="/assets/img/go2/go2red.jpg" alt="Go2" />
+	<img ng-show="color == 'white'" src="/assets/img/go2/go2white.jpg" alt="Go2" />
+	<img ng-show="color == 'silver'" src="/assets/img/go2/go2silver.jpg" alt="Go2" />
+</div>
+
+<!-- Mobile Full Width Button -->
+<a ng-click="path('/comprar')" href="javscript:void(0);" class="mobile-full-width" hide-sm hide-md hide-lg layout="row" layout-align="center center">
+	<span>COMPRE AGORA</span>
+</a>

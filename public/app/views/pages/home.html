@@ -1,0 +1,84 @@
+<!-- Home - First Section (Video) -->
+<div class="hero" flex layout="column" layout-align="center center">
+	<!-- Video Background -->
+	<video autoplay loop poster="/assets/img/home/video_bg.png" class="bg-video" hide-xs hide-sm>
+		<source src="/assets/video/hero.mp4" type="video/mp4">
+	</video>
+	<div class="overlay"></div>
+	<!-- Small Text -->
+	<p>criamos o <strong>movme<span>go2</span></strong></p>
+	<!-- Large Text -->
+	<h1>uma nova maneira de explorar seus pequenos trajetos</h1>
+	<!-- Desktop Button - Opens Video on Modal -->
+	<a href="javscript:void(0);" layout="row" layout-align="center center" ng-click="openVideo()" hide-xs>
+		<md-icon class="matrial-icon">send</md-icon>
+		<span>VEJA O VÍDEO</span>
+	</a>
+	<!-- Mobile Button - Opens YouTube -->
+	<a href="https://www.youtube.com/watch?v=op8-rKAeJdM" layout="row" layout-align="center center" target="_blank" hide-sm hide-md hide-lg>
+		<md-icon class="matrial-icon">send</md-icon>
+		<span>VEJA O VÍDEO</span>
+	</a>
+</div>
+
+<!-- Dark Header 1 -->
+<div class="black-header" flex layout="column" layout-align="center center">
+	<h1>ir e vir agora é fácil. <span>e só depende de você.</span></h1>
+</div>
+
+<!-- Features -->
+<div class="features" flex layout-xs="column" layout-gt-xs="row">
+	<div hide-xs hide-sm flex-gt-xs="100" class="feat-pic">
+		<!-- Feature Background Image -->
+		<img src="/assets/img/home/feat_bg.png" alt="" />
+		<div class="feat-content feat-content-gt-sm" layout="column" layout-align="center">
+			<!-- Features Title -->
+			<h1>FEITO PARA AS RUAS DO BRASIL</h1>
+			<!-- Features SubTitle -->
+			<p>Subidas, descidas e desníveis: o Movme Go2 foi feito para isso.</p>
+			<!-- Features -->
+			<ul>
+				<li layout="row" layout-align="start center"><div class="icon-img icon-img1"></div><span>VELOCIDADE MÁXIMA: <strong>20KM/H</strong></span></li>
+				<li layout="row" layout-align="start center"><div class="icon-img icon-img2"></div><span>INCLINAÇÃO DE SUBIDA: <strong>15°</strong></span></li>
+				<li layout="row" layout-align="start center"><div class="icon-img icon-img3"></div><span>AUTONOMIA DE <strong>10KM</strong></span></li>
+				<li layout="row" layout-align="start center"><div class="icon-img icon-img4"></div><span>TEMPO DE RECARGA: <strong>90 MINUTOS</strong></span></li>
+				<li layout="row" layout-align="start center"><div class="icon-img icon-img5"></div><span>FREIO REGENERATIVO</span></li>
+				<li layout="row" layout-align="start center"><div class="icon-img icon-img6"></div><span>AMORTECEDORES</span></li>
+			</ul>
+		</div>
+	</div>
+	<!-- Features Mobile -->
+		<img src="/assets/img/home/feat_bg.png" alt="" class="img-responsive" hide-md hide-lg />
+	<div flex="100" class="feat-content" layout="column" layout-align="center" hide-md hide-lg>
+		<h1>FEITO PARA AS RUAS DO BRASIL</h1>
+		<p>Subidas, descidas e desníveis: o Movme Go2 foi feito para isso.</p>
+		<ul>
+			<li layout="row" layout-align="start center"><div class="icon-img icon-img1"></div><span>VELOCIDADE MÁXIMA: <strong>20KM/H</strong></span></li>
+			<li layout="row" layout-align="start center"><div class="icon-img icon-img2"></div><span>INCLINAÇÃO DE SUBIDA: <strong>15°</strong></span></li>
+			<li layout="row" layout-align="start center"><div class="icon-img icon-img3"></div><span>AUTONOMIA DE <strong>10KM</strong></span></li>
+			<li layout="row" layout-align="start center"><div class="icon-img icon-img4"></div><span>TEMPO DE RECARGA: <strong>90 MINUTOS</strong></span></li>
+			<li layout="row" layout-align="start center"><div class="icon-img icon-img5"></div><span>FREIO REGENERATIVO</span></li>
+			<li layout="row" layout-align="start center"><div class="icon-img icon-img6"></div><span>AMORTECEDORES</span></li>
+		</ul>
+	</div>
+</div>
+
+<!-- Dark Header 2 -->
+<div class="black-header" flex layout="column" layout-align="center center">
+	<h1>a vida é mais fácil com o <strong>movme</strong><span class="brand-text">go2</span>. <span style="cursor:pointer;" ng-click="path('/go2')">saiba mais.</span></h1>
+</div>
+
+<!-- Enjoy Last Section -->
+<div class="enjoy" flex layout="column" layout-align="center start">
+	<!-- Large text -->
+	<h1>aproveite cada minuto do seu caminho</h1>
+	<!-- Button -->
+	<a ng-click="path('/comprar')" href="javscript:void(0);" layout="row" layout-align="center center">
+		COMPRE NA PRÉ VENDA
+	</a>
+</div>
+
+<!-- Mobile Full Width Button -->
+<a ng-click="path('/comprar')" href="javscript:void(0);" class="mobile-full-width" hide-sm hide-md hide-lg layout="row" layout-align="center center">
+	<span>COMPRE AGORA</span>
+</a>

@@ -1,0 +1,327 @@
+<!-- Checkout Header -->
+<div class="faq" flex layout="column" layout-align="center center">
+  <p>você está prestes a adquirir o</p>
+  <h1>movme go2</h1>
+  <!-- Full Price -->
+  <span class="price-striked">R$3490</span>
+  <!-- Credit Card Price -->
+  <span class="price"><strong>R$2990</strong> em 6x sem juros*</span>
+  <!-- Bank Slip Price -->
+  <span class="price-small">Ou <strong>R$2750</strong> no boleto a vista.</span>
+</div>
+
+<div class="payment" layout="column">
+
+  <!-- Payment Form -->
+  <md-content layout-padding layout="row" layout-align="center center" ng-show="!checkedOut">
+    <div layout="column" style="max-width: 800px;">
+
+      <h2>Forma de Pagamento:</h2>
+
+      <md-radio-group ng-model="payment.type">
+        <md-radio-button value="bank_slip" ng-click="setBank()">Boleto (a vista)</md-radio-button>
+        <md-radio-button value="credit_card" ng-click="setCredit()">Cartão de Crédito (*até 6x sem juros)</md-radio-button>
+      </md-radio-group>
+
+      <!-- Payment Form for Credit Card -->
+      <form ng-show="payment.type == 'credit_card'" class="order-form" id="payment-form">
+
+        <div class="usable-creditcard-form">
+          <div class="wrapper">
+            <div class="input-group nmb_a">
+              <div class="icon ccic-brand"></div>
+                <input autocomplete="off" class="credit_card_number" data-iugu="number" placeholder="Número do Cartão" type="text" value="" />
+              </div>
+            <div class="input-group nmb_b">
+              <div class="icon ccic-cvv"></div>
+                <input autocomplete="off" class="credit_card_cvv" data-iugu="verification_value" placeholder="CVV" type="text" value="" />
+            </div>
+            <div class="input-group nmb_c">
+              <div class="icon ccic-name"></div>
+                <input class="credit_card_name" data-iugu="full_name" placeholder="Titular do Cartão" type="text" value="" />
+            </div>
+            <div class="input-group nmb_d">
+              <div class="icon ccic-exp"></div>
+                <input autocomplete="off" class="credit_card_expiration" data-iugu="expiration" placeholder="MM/AA" type="text" value="" />
+            </div>
+          </div>
+          <div class="footer">
+            <img src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/cc-icons.e8f4c6b4db3cc0869fa93ad535acbfe7.png" alt="Visa, Master, Diners. Amex" border="0" />
+            <a class="iugu-btn" href="http://iugu.com" tabindex="-1"><img src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/payments-by-iugu.1df7caaf6958f1b5774579fa807b5e7f.png" alt="Pagamentos por Iugu" border="0" /></a>
+          </div>
+        </div>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Número de Parcelas</label>
+          <md-select ng-model="payment.months">
+            <md-option value="1">1</md-option>
+            <md-option value="2">2</md-option>
+            <md-option value="3">3</md-option>
+            <md-option value="4">4</md-option>
+            <md-option value="5">5</md-option>
+            <md-option value="6">6</md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Número de Movme Go2</label>
+          <md-select ng-model="payment.quantity" required>
+            <md-option value="1">1</md-option>
+            <md-option value="2" ng-if="payment.type !== 'credit_card'">2</md-option>
+            <md-option value="3" ng-if="payment.type !== 'credit_card'">3</md-option>
+            <md-option value="4" ng-if="payment.type !== 'credit_card'">4</md-option>
+            <md-option value="5" ng-if="payment.type !== 'credit_card'">5</md-option>
+            <md-option value="6" ng-if="payment.type !== 'credit_card'">6</md-option>
+            <md-option value="7" ng-if="payment.type !== 'credit_card'">7</md-option>
+            <md-option value="8" ng-if="payment.type !== 'credit_card'">8</md-option>
+            <md-option value="9" ng-if="payment.type !== 'credit_card'">9</md-option>
+            <md-option value="10" ng-if="payment.type !== 'credit_card'">10</md-option>
+          </md-select>
+        </md-input-container>
+
+        <h2>Total:</h2>
+
+        <div class="price-total"><span ng-bind="payment.quantity*payment.value | currency: 'R$' : 2"></span><small ng-bind="' (' + payment.months + 'x)'"></small></div>
+
+        <div class="months" layout="column" ng-if="payment.months > 1">
+          <table>
+            <tr>
+              <th ng-repeat="m in range(payment.months)" ng-bind="m"></th>
+            </tr>
+            <tr>
+              <td ng-repeat="m in range(payment.months)" ng-bind="payment.value/payment.months | currency : '$' : 2"></td>
+            </tr>
+          </table>
+        </div>
+
+        <h2>Preencha seus dados:</h2>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Nome</label>
+            <input type="text" required ng-model="input.payer.firstName">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Sobrenome</label>
+            <input type="text" required ng-model="input.payer.lastName">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>CPF</label>
+            <input name="cpf" ng-model="input.payer.cpf_cnpj" placeholder=""
+                   required ng-pattern="/^[0-9]{11}$/" md-maxlength="11" maxlength="11">
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>E-mail</label>
+            <input type="email" required ng-model="input.payer.email">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Telefone - DDD</label>
+            <input type="text" required ng-model="input.payer.phone_prefix" name="prefix" ng-pattern="/^[0-9]{2}$/" md-maxlength="2" maxlength="2">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Telefone</label>
+            <input type="text" required ng-model="input.payer.phone" name="phone" ng-pattern="/^[0-9]{8,9}$/" maxlength="9">
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Rua</label>
+            <input type="text" required ng-model="input.payer.address.street">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Número</label>
+            <input type="text" required ng-model="input.payer.address.number" name="number" maxlength="6">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Complemento (Opcional)</label>
+            <input type="text" ng-model="input.payer.address.complement">
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Bairro</label>
+            <input type="text" required ng-model="input.payer.address.district">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Cidade</label>
+            <input type="text" required ng-model="input.payer.address.city">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Estado</label>
+            <md-select ng-model="input.payer.address.state" required>
+              <md-option ng-repeat="state in states" value="{{state}}" ng-bind="state"></md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>CEP</label>
+            <input name="cep" ng-model="input.payer.address.zip_code" placeholder=""
+                   required ng-pattern="/^[0-9]{8}$/" md-maxlength="8" maxlength="8">
+          </md-input-container>
+        </div>
+
+        <div flex layout="row" layout-align="center center">
+          <md-button class="md-raised md-checkout" type="submit" ng-disabled="loading">COMPRAR!</md-button>
+        </div>
+
+      </form>
+
+      <!-- Payment form for Bank Slip -->
+      <form ng-show="payment.type == 'bank_slip'" class="order-form" name="orderForm" ng-submit="order(payment, input)">
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Número de Movme Go2</label>
+          <md-select ng-model="payment.quantity" required>
+            <md-option value="1">1</md-option>
+            <md-option value="2">2</md-option>
+            <md-option value="3">3</md-option>
+            <md-option value="4">4</md-option>
+            <md-option value="5">5</md-option>
+            <md-option value="6">6</md-option>
+            <md-option value="7">7</md-option>
+            <md-option value="8">8</md-option>
+            <md-option value="9">9</md-option>
+            <md-option value="10">10</md-option>
+          </md-select>
+        </md-input-container>
+
+        <h2>Total:</h2>
+
+        <div class="price-total"><span ng-bind="payment.quantity*2750 | currency: 'R$' : 2"></div>
+
+        <h2>Preencha seus dados:</h2>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Nome</label>
+            <input type="text" required ng-model="input.payer.firstName">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Sobrenome</label>
+            <input type="text" required ng-model="input.payer.lastName">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>CPF</label>
+            <input name="cpf" ng-model="input.payer.cpf_cnpj" placeholder=""
+                   required ng-pattern="/^[0-9]{11}$/" md-maxlength="11" maxlength="11">
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>E-mail</label>
+            <input type="email" required ng-model="input.payer.email">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Telefone - DDD</label>
+            <input type="text" required ng-model="input.payer.phone_prefix" name="prefix" ng-pattern="/^[0-9]{2}$/" md-maxlength="2" maxlength="2">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Telefone</label>
+            <input type="text" required ng-model="input.payer.phone" name="phone" ng-pattern="/^[0-9]{8,9}$/" maxlength="9">
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Rua</label>
+            <input type="text" required ng-model="input.payer.address.street">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Número</label>
+            <input type="text" required ng-model="input.payer.address.number" name="number" maxlength="6">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Complemento (Opcional)</label>
+            <input type="text" ng-model="input.payer.address.complement">
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Bairro</label>
+            <input type="text" required ng-model="input.payer.address.district">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Cidade</label>
+            <input type="text" required ng-model="input.payer.address.city">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Estado</label>
+            <md-select ng-model="input.payer.address.state" required>
+              <md-option ng-repeat="state in states" value="{{state}}" ng-bind="state"></md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>CEP</label>
+            <input name="cep" ng-model="input.payer.address.zip_code" placeholder=""
+                   required ng-pattern="/^[0-9]{8}$/" md-maxlength="8" maxlength="8">
+          </md-input-container>
+        </div>
+
+        <div flex layout="row" layout-align="center center">
+          <md-button class="md-raised md-checkout" type="submit" ng-disabled="loading" ng-if="!loading">COMPRAR!</md-button>
+          <img ng-if="loading" class="payment-loader" src="/assets/img/loader.gif" alt="Carregando..." />
+        </div>
+
+      </form>
+
+    </div>
+  </md-content>
+
+  <!-- Success Views -->
+  <md-content layout-padding layout="row" layout-align="center center" ng-if="checkedOut">
+    <!-- Bank Slip Success -->
+    <div flex layout="column" layout-align="center center" ng-if="bankUrl">
+      <p>
+        Acesse o seu boleto e imprima ou baixe o arquivo. Caso precise de uma segunda via, entre em contato pelo e-mail
+        <a href="mailto:contato@gomovme.com">contato@gomovme.com</a>
+      </p>
+      <a href="{{bankUrl}}" target="_blank">
+        <md-button class="md-raised md-checkout">VER BOLETO!</md-button>
+      </a>
+      <a href="{{bankPDF}}" target="_blank">
+        <md-button class="md-raised md-checkout">Arquivo PDF</md-button>
+      </a>
+    </div>
+    <!-- Credit Card Success -->
+    <div flex layout="column" layout-align="center center" ng-if="cardUrl">
+      <p>
+        Acesse a sua fatura e imprima ou baixe o arquivo. Caso precise de uma segunda via, entre em contato pelo e-mail
+        <a href="mailto:contato@gomovme.com">contato@gomovme.com</a>
+      </p>
+      <a href="{{cardUrl}}" target="_blank">
+        <md-button class="md-raised md-checkout">VER FATURA!</md-button>
+      </a>
+      <a href="{{cardPDF}}" target="_blank">
+        <md-button class="md-raised md-checkout">Arquivo PDF</md-button>
+      </a>
+    </div>
+
+  </md-content>
+
+</div>

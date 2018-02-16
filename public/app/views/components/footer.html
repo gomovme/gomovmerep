@@ -1,0 +1,24 @@
+<!-- Footer Content -->
+<div layout-xs="column" layout-gt-xs="row" layout-align="center center" class="mobile-block">
+	<!-- Subscribe -->
+	<div flex-xs="100" flex-gt-xs="50" layout="column" layout-align="center center">
+		<strong>SAIBA TUDO ANTES DE TODO MUNDO:</strong>
+		<div class="subscription" flex layout="row" layout-xs="column">
+			<input type="email" ng-model="input.email" placeholder="seu e-mail" />
+			<a href="javascript:void(0)" ng-click="subscribe(input.email)" ng-disabled="loadingBtn">Enviar</a>
+		</div>
+	</div>
+	<!-- Contact and Social -->
+	<div flex-xs="100" flex-gt-xs="50" layout="column" layout-align="center center">
+		<a href="mailto:contato@gomovme.com">contato@gomovme.com</a>
+		<span>siga nossas redes sociais:</span>
+		<div class="social" flex-xs="100" flex-gt-xs="50" layout="row" layout-align="center center">
+			<a href="//facebook.com/gomovme" target="_blank">
+				<img src="/assets/img/social/fb.svg" alt="Facebook" >
+			</a>
+			<a href="//instagram.com/gomovme" target="_blank">
+				<img src="/assets/img/social/insta.svg" alt="Instagram" >
+			</a>
+		</div>
+	</div>
+</div>
